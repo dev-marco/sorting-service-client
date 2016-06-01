@@ -120,10 +120,12 @@ class Sorter {
         // Fill indexes with ordered and normalized values
         foreach ($data as $index => $entry) {
             $normalized_entry = [];
+
             foreach ($entry as $key => $value) {
                 // Insert normalized inside same key
                 $normalized_entry[ $key ] = Sorter::normalize($value);
             }
+            
             $indexes[$index] = $normalized_entry;
         }
 
