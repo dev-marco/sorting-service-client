@@ -1,0 +1,42 @@
+[
+    {
+        "field": "tz",
+        "order": "ASC"
+    },
+    {
+        "field": "cw ",
+        "order": "DESC"
+    },
+    {
+        "field": "cw ",
+        "order": "ASC"
+    },
+    {
+        "field": "ti",
+        "order": "ASC"
+    },
+    {
+        "field": "tz",
+        "order": "DESC"
+    },
+    {
+        "field": "tz",
+        "order": "DESC"
+    },
+    {
+        "field": "cw ",
+        "order": "DESC"
+    },
+    {
+        "field": "tz",
+        "order": "ASC"
+    },
+    {
+        "field": "ti",
+        "order": "ASC"
+    },
+    {
+        "field": "ti",
+        "order": "ASC"
+    }
+]

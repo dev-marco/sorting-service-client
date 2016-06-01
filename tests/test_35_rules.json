@@ -1,0 +1,26 @@
+[
+    {
+        "field": "mtr",
+        "order": "ASC"
+    },
+    {
+        "field": "r",
+        "order": "ASC"
+    },
+    {
+        "field": "xkry xnd",
+        "order": "DESC"
+    },
+    {
+        "field": "obxin kv",
+        "order": "ASC"
+    },
+    {
+        "field": "qydagkwz",
+        "order": "ASC"
+    },
+    {
+        "field": "kteaj",
+        "order": "DESC"
+    }
+]

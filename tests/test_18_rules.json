@@ -1,22 +1,22 @@
 [
     {
-        "field": "wbd",
+        "field": "lg",
         "order": "ASC"
     },
     {
-        "field": "d\nmem",
+        "field": "yn",
         "order": "ASC"
     },
     {
-        "field": "wbd",
+        "field": "od",
         "order": "DESC"
     },
     {
-        "field": "rdp tbpc a",
+        "field": "yn",
         "order": "DESC"
     },
     {
-        "field": "fon",
-        "order": "DESC"
+        "field": "vcsl",
+        "order": "ASC"
     }
 ]
