@@ -44,15 +44,20 @@ class Sorter:
         for index, entry in enumerate(data):
 
             # Create a new dictionary of normalized values
-            normalized_entry = { key: normalize(str(value)) for key, value in entry.items() }
+            normalized_entry = {
+                key: normalize(str(value)) for key, value in entry.items()
+            }
 
             # Append normalized entry and index to lists
             normalized_entries.append(normalized_entry)
             indexes.append( index )
 
-        # Python 'sorted' function is stable, so the previous ordering is not affected by this ordering when the values are equal
+        # Python 'sorted' function is stable, so the previous ordering is not
+        # affected by this ordering when the values are equal
         for rule_field, rule_reverse in reversed(self.__rules):
             # Sort by the rule
-            indexes = sorted(indexes, key = lambda x: normalized_entries[ x ][ rule_field ], reverse = rule_reverse)
+            indexes = sorted(indexes,
+                key = lambda x: normalized_entries[ x ][ rule_field ],
+            reverse = rule_reverse)
 
         return indexes
