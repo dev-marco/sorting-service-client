@@ -11,6 +11,10 @@ if (process.argv.length > 3) {
         // Read and parse the JSON of the rules file synchronously
         rules = JSON.parse(fs.readFileSync(process.argv[2]));
     } catch (_) {
+        rules = null;
+    }
+
+    if (rules === null) {
         // NULL rules exception
         throw new sorter.SortingServiceException('Rules set is null.');
     }
