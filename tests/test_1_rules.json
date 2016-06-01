@@ -1,0 +1,14 @@
+[
+    {
+        "field": "Edition Year",
+        "order": "DESC"
+    },
+    {
+        "field": "Author",
+        "order": "DESC"
+    },
+    {
+        "field": "Title",
+        "order": "ASC"
+    }
+]
