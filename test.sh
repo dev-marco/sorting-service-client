@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ "${1}" = '--install-deps' ]; then
     sudo apt-get install php5 php5-json npm -y
     sudo npm cache clean -f
