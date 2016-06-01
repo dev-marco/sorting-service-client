@@ -23,9 +23,9 @@ if __name__ == "__main__":
 
     if len(sys.argv) > 1:
 
-        num_tests = int(sys.argv[1]) + 1
+        num_tests = int(sys.argv[1])
 
-        for test in range(1, num_tests):
+        for test in range(0, num_tests):
 
             # select total of fields
             num_fields = random.randint(1, 100)

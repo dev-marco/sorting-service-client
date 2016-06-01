@@ -19,7 +19,8 @@ GREEN=$(tput setaf 2)
 # Reset output
 RESET=$(tput sgr0)
 
-for i in $(seq 1 ${NUM_TESTS}); do
+# Test in range [ 0, NUM_TESTS ) 
+for i in $(seq 0 $((${NUM_TESTS} - 1))); do
 
     # JavaScript test
     node javascript/main.js tests/test_${i}_rules.json \
