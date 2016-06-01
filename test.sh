@@ -10,7 +10,7 @@ fi
 # Output file
 TMP_OUT=$(mktemp)
 # Number of available tests
-NUM_TESTS=1
+NUM_TESTS=50
 
 # Turns the output red
 RED=$(tput setaf 1)
@@ -19,14 +19,14 @@ GREEN=$(tput setaf 2)
 # Reset output
 RESET=$(tput sgr0)
 
-# Test in range [ 0, NUM_TESTS ) 
+# Test in range [ 0, NUM_TESTS )
 for i in $(seq 0 $((${NUM_TESTS} - 1))); do
 
     # JavaScript test
     node javascript/main.js tests/test_${i}_rules.json \
         tests/test_${i}_entries.json > ${TMP_OUT}
 
-    if ! ./jsondiff.py tests/output_${i}.txt ${TMP_OUT}; then
+    if ! ./jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
         echo ${RED} JavaScript errored at test ${i} ${RESET}
         rm -f ${TMP_OUT}
         exit -1
@@ -38,7 +38,7 @@ for i in $(seq 0 $((${NUM_TESTS} - 1))); do
     php php/main.php tests/test_${i}_rules.json tests/test_${i}_entries.json > \
         ${TMP_OUT}
 
-    if ! ./jsondiff.py tests/output_${i}.txt ${TMP_OUT}; then
+    if ! ./jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
         echo ${RED} PHP errored at test ${i} ${RESET}
         rm -f ${TMP_OUT}
         exit -1
@@ -50,7 +50,7 @@ for i in $(seq 0 $((${NUM_TESTS} - 1))); do
     python3 python/main.py tests/test_${i}_rules.json \
         tests/test_${i}_entries.json > ${TMP_OUT}
 
-    if ! ./jsondiff.py tests/output_${i}.txt ${TMP_OUT}; then
+    if ! ./jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
         echo ${RED} Python errored at test ${i} ${RESET}
         rm -f ${TMP_OUT}
         exit -1
