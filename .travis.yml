@@ -8,5 +8,4 @@ matrix:
     - os: linux
         env: OPTIONS="-python --install-deps"
 
-
 script: sudo bash test.sh ${OPTIONS}
