@@ -59,11 +59,15 @@ if __name__ == "__main__":
             ]
 
             # write entries
-            file_entries = open('test_' + str(test) + '_entries.json', 'w')
+            file_entries = open(
+                'entries/test_' + str(test) + '_entries.json', 'w'
+            )
             json.dump(entries, file_entries, indent = 4)
             file_entries.close()
 
             # write rules
-            file_rules = open('test_' + str(test) + '_rules.json', 'w')
+            file_rules = open(
+                'rules/test_' + str(test) + '_rules.json', 'w'
+            )
             json.dump(rules, file_rules, indent = 4)
             file_rules.close()

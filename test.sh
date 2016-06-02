@@ -52,10 +52,10 @@ for i in $(seq 0 $((${NUM_TESTS} - 1))); do
 
     # JavaScript test
     if [ "${ENABLE_JAVASCRIPT}" = "1" ]; then
-        node javascript/main.js tests/test_${i}_rules.json \
-            tests/test_${i}_entries.json > ${TMP_OUT}
+        node javascript/main.js tests/rules/test_${i}_rules.json \
+            tests/entries/test_${i}_entries.json > ${TMP_OUT}
 
-        if ! python3 jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
+        if ! python3 jsondiff.py tests/outputs/output_${i}.json ${TMP_OUT}; then
             echo ${RED} JavaScript errored at test ${i} ${RESET}
             rm -f ${TMP_OUT}
             exit -1
@@ -66,10 +66,10 @@ for i in $(seq 0 $((${NUM_TESTS} - 1))); do
 
     # PHP test
     if [ "${ENABLE_PHP}" = "1" ]; then
-        php php/main.php tests/test_${i}_rules.json \
-            tests/test_${i}_entries.json > ${TMP_OUT}
+        php php/main.php tests/rules/test_${i}_rules.json \
+            tests/entries/test_${i}_entries.json > ${TMP_OUT}
 
-        if ! python3 jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
+        if ! python3 jsondiff.py tests/outputs/output_${i}.json ${TMP_OUT}; then
             echo ${RED} PHP errored at test ${i} ${RESET}
             rm -f ${TMP_OUT}
             exit -1
@@ -80,10 +80,10 @@ for i in $(seq 0 $((${NUM_TESTS} - 1))); do
 
     # Python test
     if [ "${ENABLE_PYTHON}" = "1" ]; then
-        python3 python/main.py tests/test_${i}_rules.json \
-            tests/test_${i}_entries.json > ${TMP_OUT}
+        python3 python/main.py tests/rules/test_${i}_rules.json \
+            tests/entries/test_${i}_entries.json > ${TMP_OUT}
 
-        if ! python3 jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
+        if ! python3 jsondiff.py tests/outputs/output_${i}.json ${TMP_OUT}; then
             echo ${RED} Python errored at test ${i} ${RESET}
             rm -f ${TMP_OUT}
             exit -1
