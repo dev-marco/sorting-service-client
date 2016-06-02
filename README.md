@@ -91,6 +91,24 @@ Other examples of rules can be found in `tests/entries/`.
 ##### Important
 PHP, JavaScript and Python (especially the last) uses different sorting methods, so the results may vary mainly according to sort stability ([Python sort is stable](https://docs.python.org/2/library/functions.html#sorted), [PHP sort is not](https://secure.php.net/manual/en/function.uasort.php), [JavaScript leaves undefined](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)).
 
+### Output
+JSON file containing the indexes of the entries after sort.
+
+#### Example
+```
+[
+    2,
+    5,
+    1,
+    0,
+    4,
+    3
+]
+```
+
+Where every index references an entry. In that case `2` should be the first element after sort, `5` should be next and so on.
+Other examples of outputs can be found in `tests/outputs/`.
+
 ## 3rd Party Packages
 There are no extra 3rd party packages except those shipped with the language (for example, php5-json is installed with php5). If there is any problem with package requirements you can always use the `test.sh` script with `--install-deps` and the packages you want to install (`-php`, `-js` or `-python`)
 
