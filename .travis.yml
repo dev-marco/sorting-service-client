@@ -1,11 +1,17 @@
 sudo: required
 
+language: node_js
+
+node_js:
+    - 5
+
 matrix:
-    - os: linux
-        env: OPTIONS="-php --install-deps"
-    - os: linux
-        env: OPTIONS="-js --install-deps"
-    - os: linux
-        env: OPTIONS="-python --install-deps"
+    include:
+        - os: linux
+          env: OPTIONS='-php --install-deps'
+        - os: linux
+          env: OPTIONS='-js --install-deps'
+        - os: linux
+          env: OPTIONS='-python --install-deps'
 
 script: sudo bash test.sh ${OPTIONS}
