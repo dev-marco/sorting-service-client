@@ -55,7 +55,7 @@ for i in $(seq 0 $((${NUM_TESTS} - 1))); do
         node javascript/main.js tests/test_${i}_rules.json \
             tests/test_${i}_entries.json > ${TMP_OUT}
 
-        if ! ./jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
+        if ! python3 jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
             echo ${RED} JavaScript errored at test ${i} ${RESET}
             rm -f ${TMP_OUT}
             exit -1
@@ -69,7 +69,7 @@ for i in $(seq 0 $((${NUM_TESTS} - 1))); do
         php php/main.php tests/test_${i}_rules.json \
             tests/test_${i}_entries.json > ${TMP_OUT}
 
-        if ! ./jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
+        if ! python3 jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
             echo ${RED} PHP errored at test ${i} ${RESET}
             rm -f ${TMP_OUT}
             exit -1
@@ -83,7 +83,7 @@ for i in $(seq 0 $((${NUM_TESTS} - 1))); do
         python3 python/main.py tests/test_${i}_rules.json \
             tests/test_${i}_entries.json > ${TMP_OUT}
 
-        if ! ./jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
+        if ! python3 jsondiff.py tests/output_${i}.json ${TMP_OUT}; then
             echo ${RED} Python errored at test ${i} ${RESET}
             rm -f ${TMP_OUT}
             exit -1
