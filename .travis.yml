@@ -1,17 +1,14 @@
-sudo: required
+dist: trusty
 
-language: node_js
+language: generic
 
-node_js:
-    - 5
+env:
+    - OPTIONS='-php'
+    - OPTIONS='-js'
+    - OPTIONS='-python'
 
-matrix:
-    include:
-        - os: linux
-          env: OPTIONS='-php --install-deps'
-        - os: linux
-          env: OPTIONS='-js --install-deps'
-        - os: linux
-          env: OPTIONS='-python --install-deps'
+before_install:
+    - php-version 5.6
+    - nvm install 5
 
 script: sudo bash test.sh ${OPTIONS}
