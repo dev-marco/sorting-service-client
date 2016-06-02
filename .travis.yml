@@ -1,18 +1,15 @@
 sudo: required
 dist: trusty
 
-language: php
+language: generic
 
-php:
-    - 5.6
-
-env:
-    - OPTIONS='-php'
-    - OPTIONS='-js'
-    - OPTIONS='-python'
-
-before_script:
+before_install:
     - nvm install 5
     - nvm use 5
+    - phpenv install php-5.6
+    - phpenv global 5.6
 
-script: bash test.sh ${OPTIONS}
+matrix:
+    fast_finish: true
+
+script: bash test.sh -php -js -python
