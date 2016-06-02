@@ -1,0 +1,19 @@
+language: php
+
+node_js:
+    - 5
+
+python:
+    - 3
+
+php:
+    - 5.3
+    - 5.6
+    - 7
+
+matrix:
+    include:
+        - os: linux
+        - os: osx
+
+script: bash test.sh
