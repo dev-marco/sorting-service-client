@@ -12,8 +12,6 @@ INSTALL_DEPS=0
 
 # Output file
 TMP_OUT=$(mktemp)
-# Number of available tests
-NUM_TESTS=50
 
 # Turns the output red
 RED=$(tput setaf 1)
@@ -45,10 +43,20 @@ if [ "${INSTALL_DEPS}" = "1" ]; then
         sudo npm install -g n
         sudo n stable
     fi
+
+    # Install python deps
+    if [ "${ENABLE_PYTHON}" = "1" ]; then
+        sudo apt-get install python3 -y
+    fi
 fi
 
-# Test in range [ 0, NUM_TESTS )
-for i in $(seq 0 $((${NUM_TESTS} - 1))); do
+# Test every test available
+i=0
+while [[ \
+    -f tests/rules/test_${i}_rules.json && \
+    -f tests/entries/test_${i}_entries.json && \
+    -f tests/outputs/output_${i}.json \
+]]; do
 
     # JavaScript test
     if [ "${ENABLE_JAVASCRIPT}" = "1" ]; then
@@ -91,6 +99,8 @@ for i in $(seq 0 $((${NUM_TESTS} - 1))); do
             echo ${GREEN} Python passed test ${i} ${RESET}
         fi
     fi
+
+    i=$((${i} + 1))
 done
 
 rm -f ${TMP_OUT}
